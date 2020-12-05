@@ -1,12 +1,3 @@
-const findTitle = selectors => {
-  for (let i = 0; i < selectors.length; i++) {
-    const found = document.querySelector(selectors[i]);
-    if (found) {
-      return found.innerText;
-    }
-  }
-};
-
 const captureScreenshot = () => {
   const extension = '.png';
   const title = findTitle([
@@ -16,7 +7,6 @@ const captureScreenshot = () => {
   ]);
   const player = document.getElementsByClassName('video-stream')[0];
   const timestamp = createTimestamp(player.currentTime);
-
   const canvas = document.createElement('canvas');
   canvas.width = player.videoWidth;
   canvas.height = player.videoHeight;
@@ -32,14 +22,19 @@ const captureScreenshot = () => {
 };
 
 const addButton = () => {
-  let ytpRightControls = document.getElementsByClassName(
-    'ytp-right-controls'
-  )[0];
-  if (
-    ytpRightControls &&
-    !document.getElementsByClassName('screenshot-button')[0]
-  ) {
-    ytpRightControls.prepend(screenshotButton);
+  const controls = document.getElementsByClassName('ytp-right-controls')[0];
+  const button = document.getElementsByClassName('screenshot-button')[0];
+  if (controls && !button) {
+    controls.prepend(screenshotButton);
+  }
+};
+
+const findTitle = selectors => {
+  for (let i = 0; i < selectors.length; i++) {
+    const found = document.querySelector(selectors[i]);
+    if (found) {
+      return found.innerText;
+    }
   }
 };
 
