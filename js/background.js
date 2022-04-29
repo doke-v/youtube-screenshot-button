@@ -1,11 +1,16 @@
-chrome.webNavigation.onHistoryStateUpdated.addListener(
-  data => {
-    chrome.tabs.get(data.tabId, () => {
-      chrome.tabs.executeScript(data.tabId, {
-        code: 'if(typeof addButton !== "undefined") {addButton()}',
-        runAt: 'document_start',
-      });
-    });
-  },
-  { url: [{ hostSuffix: '.youtube.com' }] }
-);
+// chrome.webNavigation.onHistoryStateUpdated.addListener(
+//   ({ tabId }) => {
+//     chrome.tabs.get(tabId, () => {
+//       chrome.scripting.executeScript(
+//         {
+//           target: { tabId },
+//           files: ["js/page.js"],
+//         },
+//         () => {}
+//       );
+//     });
+//   },
+//   { url: [{ hostSuffix: ".youtube.com" }] }
+// );
+
+// console.log(chrome);
