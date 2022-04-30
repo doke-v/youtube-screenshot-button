@@ -64,4 +64,5 @@ chrome.runtime.onMessage.addListener(async (message, sender, sendResponse) => {
     setTimeout(addButton, 1000);
   }
   sendResponse("ok");
+  return true;
 });
