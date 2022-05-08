@@ -5,7 +5,7 @@
   "host_permissions": ["https://*.youtube.com/*"],
   "update_url": "https://clients2.google.com/service/update2/crx",
   "version": "0.1.6",
-  "permissions": ["webNavigation", "tabs"],
+  "permissions": ["webNavigation"],
   "background": {
     "service_worker": "js/background.js"
   },
